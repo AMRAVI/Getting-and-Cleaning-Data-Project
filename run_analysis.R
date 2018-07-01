@@ -7,9 +7,7 @@
 # 5.From the data set in step 4, creates a second, independent tidy data set with the average 
 #  of each variable for each activity and each subject.
 
-setwd("C:/Users/ravindram/Documents/Coursera/UCI HAR Dataset")
 require("data.table")
-require("reshape2")
 
 # Reading trainings,testing data tables
 
@@ -66,4 +64,4 @@ secondTidySet_1 <- aggregate( . ~subjectId + activityId, setWithActivityNames, m
 secondTidySet <- secondTidySet_1[order(secTidySet$subjectId, secTidySet$activityId),]
 
 #Save Data set to a file
-write.table(secondTidySet, file = "tidy_data.txt")
+write.table(secondTidySet, file = "tidy_data.txt",row.name=FALSE)
